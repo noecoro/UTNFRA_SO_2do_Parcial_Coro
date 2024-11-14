@@ -1,4 +1,4 @@
-# Comandos para el punto D
+# ComanIdos para el punto D
 # Crear la estructura de directorios
 mkdir -p /tmp/2do_parcial/{alumno,equipo}
 
