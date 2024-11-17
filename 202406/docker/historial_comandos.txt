@@ -1,0 +1,1566 @@
+    1  whoami
+    2  ls
+    3  ls -l
+    4  tail -f/var/log/dmesg
+    5  sudo tail -f/var/log/dmesg
+    6  sudo tail -f /var/log/dmesg
+    7  journalctl -fk
+    8  journalctl -fk | grep -i nic
+    9  sudo apt install tree
+   10  tree
+   11  pwd
+   12  ls
+   13  ls -l
+   14  tree
+   15  mkdir clase4
+   16  tree
+   17  cd clase4
+   18  ls
+   19  mkdir practica
+   20  ls
+   21  cd practica
+   22  touch archivo1.txt
+   23  ls -l
+   24  cp archivo1.txt archivo2.txt 
+   25  ls
+   26  rm -i archivo1.txt
+   27  ls
+   28  mv archivo2.txt /home/osboxes/clase4
+   29  ls
+   30  cd cd ..
+   31  cd ..
+   32  ls
+   33  rmdir practica
+   34  ls
+   35  w
+   36  last
+   37  mkdir facturas pedidos
+   38  tree
+   39  mkdir -p cliente/{facturas,pedidos}
+   40  tree
+   41  mkdir -p {clientes,proveedores}/{facturas,pedidos}
+   42  tree
+   43  rm -r cliente
+   44  tree
+   45  mkdir -p contactos/{clientes,proveedores}/{facturas,pedidos}
+   46  tree
+   47  mkdir -p coro_1/contactos/{clientes,proveedores}/{facturas,pedidos}
+   48  tree
+   49  mkdir -p coro_2/{mama/hijo{1..3},papa/{ahijado,jijo{1..3}}}
+   50  tree
+   51  rm -r coro_2
+   52  mkdir -p coro_2/{mama/hijo{1..3},papa/{ahijado,hijo{1..3}}}
+   53  tree
+   54  clear
+   55  cat /proc/cpuinfo
+   56  cat /proc/cpuinfo | grep -i proce
+   57  cat /proc/cpuinfo | grep -i proce | awk '{print}'
+   58  cat /proc/cpuinfo | grep -i proce | awk '{print$2}'
+   59  cat /proc/cpuinfo | grep -i proce | awk '{print$3}'
+   60  cat /proc/cpuinfo | grep -i proce | awk -F ':' '{print$2}'
+   61  nproc
+   62  cat /etc/passwd
+   63  cat /etc/passwd | grep osboxes
+   64  cat /etc/shadow
+   65  sudo cat /etc/shadow
+   66  cat /etc/group
+   67  sudo su
+   68  sudo groupadd Alumnos
+   69  tail /etc/group
+   70  sudo useradd -m -s /bin/bash -c "Alumno pepe" -G Alumnos pepe
+   71  ls /home/
+   72  id pepe
+   73  id
+   74  ls -l
+   75  passwd pepe
+   76  sudo passwd pepe
+   77  sudo tail /etc/shadow
+   78  su pepe
+   79  su - pepe
+   80  grep pepe /etc/shadow | awk-F ':' '{print $2}'
+   81  sudo grep pepe /etc/shadow | awk-F ':' '{print $2}'
+   82  sudo grep pepe /etc/shadow | awk -F ':' '{print $2}'
+   83  sudo useradd-m-s /bin/bash-c "usuario juan" -p "$(sudo grep pepe /etc/shadow | awk -F ':' '{print $2}')" juan
+   84  sudo useradd -m -s /bin/bash-c "usuario juan" -p "$(sudo grep pepe /etc/shadow | awk -F ':' '{print $2}')" juan
+   85  ls -l
+   86  sudo grep -E 'pepe|juan' /etc/shadow | awk -F ':' '{print $2}'
+   87  cat /etc/passwd
+   88  usermod -s /bin/sh pepe
+   89  sudo usermod -s /bin/sh pepe
+   90  cat /etc/passwd
+   91  exit
+   92  sudo apt update
+   93  sudo apt install -y manpages-es
+   94  sudo localectl set-locale LANG=es_AR.UTF-8
+   95  locale
+   96  man man
+   97  sudo apt install language-pack-es
+   98  sudo localectl set-locale LANG=es_AR.UTF-8
+   99  man man
+  100  exit
+  101  ls
+  102  ls -l
+  103  cd Documents
+  104  ls
+  105  echo "buenos dias" > saludo1.txt
+  106  echo "los dias semana" > saludo2.txt
+  107  echo "buenas noches" > saludo3.txt
+  108  ls -l
+  109  find -name "*.txt" | xarg grep "dias"
+  110  echo "los dias del mes" > saludo4
+  111  find -name "*.txt"
+  112  find -name "*.txt" | xargs grep "dias"
+  113  find -name "*.txt" | xargs grep "saludo"
+  114  find -name "*.txt" |  grep "saludo"
+  115  find -name "*.txt" | xargs cat
+  116  cd ..
+  117  clear
+  118  pwd
+  119  sudo cat /etc/sudoers
+  120  vim /etc/sudoers
+  121  sudo vim /etc/sudoers
+  122  sudo apt install vim
+  123  vim --version
+  124  sudo vim /etc/sudoers
+  125  sudo visudo
+  126  ls -l /etc/sudoers.d
+  127  which chown
+  128  which chmod
+  129  cd Documents
+  130  ls -l
+  131  chown pepe saludo4
+  132  sudo chown pepe saludo4
+  133  ls -l
+  134  sudo chown :pepe saludo4
+  135  ls -l
+  136  whoami
+  137  echo "chau" >> saludo4
+  138  sudo echo "chau" >> saludo4
+  139  cd ..
+  140  ls -l
+  141  sudo chown pepe:pepe Documents
+  142  ls -l
+  143  sudo chown -R osboxes:osboxes Documents/
+  144  ls -l
+  145  ls -l Documents/
+  146  cd Documents
+  147  clear
+  148  ls -l
+  149  chmod o+w saludo4
+  150  ls -l
+  151  chmod g-w saludo4
+  152  ls -l
+  153  chmod u+x saludo4
+  154  ls -l
+  155  chmod u-x saludo4
+  156  ls -l
+  157  chmod g+w,o-w saludo4
+  158  ls -l
+  159  chmod 777 saludo4
+  160  ls -l
+  161  chmod 764 saludo4
+  162  ls -l
+  163  chmod 664 saludo4
+  164  ls -l
+  165  cd ..
+  166  ls -l
+  167  chmod -R 640 Documents/
+  168  sudo chmod -R 640 Documents/
+  169  ls -l
+  170  sudo ls -l Documents/
+  171  clear
+  172  pwd
+  173  ls -l/home
+  174  ls -l /home
+  175  cd pepe
+  176  cd /home/pepe
+  177  sudo cd /home/pepe
+  178  cd /home/pepe
+  179  sudo chmod 754 /home/pepe
+  180  sudo chmod 754 /home/pepe/
+  181  ls -l
+  182  cd /home/pepe
+  183  ls -l /home/pepe
+  184  su pepe
+  185  su - pepe
+  186  pwd
+  187  sudo chow osboxes:osboxes /home/pepe/textopepe.txt 
+  188  sudo chown osboxes:osboxes /home/pepe/textopepe.txt 
+  189  ls -l
+  190  ls -l /home/pepe/
+  191  sudo ls -l /home/pepe/
+  192  mkdir clase5
+  193  ls -l
+  194  cd clase5
+  195  touch practica1.txt
+  196  touch practica2.txt
+  197  ls -l
+  198  chmod 600 practica1.txt
+  199  ls -l
+  200  chmod 444 practica2.txt
+  201  ls -l
+  202  echo "linea" >> practica2.txt
+  203  sudo echo "linea" >> practica2.txt
+  204  chmod 644 practica2.txt
+  205  ls -l
+  206  echo "linea" >> practica2.txt
+  207  cat practica2.txt
+  208  cd ..
+  209  ls -l
+  210  chmod -R 777 clase5/
+  211  ls -l
+  212  ls -l clase5
+  213  cd clase5
+  214  ls -l
+  215  chmod 666 *.txt
+  216  ls -l
+  217  exit
+  218  sudo fdisk -l
+  219  sudo fdisk /dev/sdb
+  220  sudo fdisk
+  221  fdisk -l
+  222  fdisk
+  223  sudo fdisk
+  224  sudo apt install gparted
+  225  sudo gparted
+  226  sudo fdisk -l
+  227  sudo fdisk /dev/sdb
+  228  sudo fdisk
+  229  sudo fdisk -l
+  230  sudo mkfs -t ext4 /dev/sdb1
+  231  sudo mkfs -t ext4 /dev/sdb2 && sudo mkfs -t ext4 /dev/sdb3
+  232  sudo mkdir -p /mnt/parte{1..3}
+  233  sudo ls -l /mnt/
+  234  sudo mount /dev/sdb1 /mnt/parte1
+  235  lsblk -f
+  236  sudo mount /dev/sdb2 /mnt/parte2
+  237  sudo mount /dev/sdb3 /mnt/parte3
+  238  lsblk -f
+  239  df -h
+  240  ls -l
+  241  pwd
+  242  whoami
+  243  echo "ls -l" > script1
+  244  cat script1 
+  245  bashs script1 
+  246  bash script1 
+  247  echo "pwd" > script2
+  248  cat script2
+  249  echo "whoami" >> script2
+  250  cat script2
+  251  bash script2
+  252  vim script3.sh
+  253  ls -l
+  254  ./script3.sh
+  255  sudo ./script3.sh
+  256  sudo chmod 764 scritp3.sh
+  257  sudo chmod 764 script3.sh
+  258  ls -l
+  259  ./script3.sh 
+  260  ls -l
+  261  cd carpeta1/
+  262  ls -l
+  263  nano script4.sh
+  264  cat script4.sh 
+  265  chmod 764 script4.sh 
+  266  ls -l
+  267  ./script4.sh 
+  268  vim primerif.sh
+  269  cd ..
+  270  fdisk -l
+  271  sudo fdisx -l
+  272  sudo fdisk -l
+  273  sudo fdisk /dev/sdb
+  274  sudo fdisk
+  275  sudo fdisk -l
+  276  lsblk -f
+  277  sudo mkdir -p /mnt/parte{5..6}
+  278  tree /mnt
+  279  sudo mkfs.ext4 /dev/sdb5
+  280  sudo mkfs.ext4 /dev/sdb6
+  281  lsblk -f
+  282  sudo mount /dev/sdb1 /mnt/parte1
+  283  sudo mount /dev/sdb2 /mnt/parte2
+  284  sudo mount /dev/sdb3 /mnt/parte3
+  285  sudo mount /dev/sdb5 /mnt/parte5
+  286  sudo mount /dev/sdb6 /mnt/parte6
+  287  lsblk -f
+  288  cat /etc/fstab
+  289  echo "/dev/sdb1 /mnt/parte1 ext4 defaults 0 0"
+  290  echo "/dev/sdb1 /mnt/parte1 ext4 defaults 0 0" | sudo tee -a /etc/fstab"
+  291  echo "/dev/sdb1 /mnt/parte1 ext4 defaults 0 0" | sudo tee -a /etc/fstab
+  292  echo "/dev/sdb2 /mnt/parte2 ext4 defaults 0 0" | sudo tee -a /etc/fstab
+  293  echo "/dev/sdb3 /mnt/parte3 ext4 defaults 0 0" | sudo tee -a /etc/fstab
+  294  echo "/dev/sdb5 /mnt/parte5 ext4 defaults 0 0" | sudo tee -a /etc/fstab
+  295  echo "/dev/sdb6 /mnt/parte6 ext4 defaults 0 0" | sudo tee -a /etc/fstab
+  296  sudo mount -a
+  297  cat /etc/fstab
+  298  exit
+  299  sudo lsblk
+  300  sudo - juan
+  301  cat /etc/passwd
+  302  sudo adduser juan
+  303  sudo fdisk -l | grep "2 G"
+  304  sudo fdisk -l | grep "2 G" | awk '{print $2}' | awk -F ":" '{print $1}'
+  305  DISCO=$(sudo fdisk -l | grep "2 G" | awk '{print $2}' | awk -F ":" '{print $1}')
+  306  echo $DISCO
+  307  sudo fdisk $DISCO
+  308  free 
+  309  free | grep "Mem" | awk '{print $2}'
+  310  free | grep "Mem"
+  311  free | grep "Mem" | awk '{print $2}'
+  312  MEMO=$(free | grep "Mem" | awk '{print $2}')
+  313  echo $MEMO
+  314  exit
+  315  git version
+  316  tree --version
+  317  git --version
+  318  mkdir repogit
+  319  ls -l
+  320  cd repogit/
+  321  cd repogit
+  322  cd ..
+  323  cd repogit
+  324  pwd
+  325  cd ..
+  326  [200~cd $HOME/repogit
+  327  cd $HOME/repogit
+  328  pwd
+  329  git clone https://github.com/upszot/UTN-FRA_SO_Examenes.git
+  330  git clone https://github.com/noecoro/UTNFRA_SO_1P2C_2024_Coro.git
+  331  ssh-keygen -t ed25519 -C "coronoelia@gmail.com"
+  332  cat ~/.ssh/id_ed25519.pub
+  333  git clone https://github.com/noecoro/UTNFRA_SO_1P2C_2024_Coro.git
+  334  eval "$(ssh-agent -s)"
+  335  ssh-add ~/.ssh/id_ed25519
+  336  git clone https://github.com/noecoro/UTNFRA_SO_1P2C_2024_Coro.git
+  337  git clone git@github.com:noecoro/UTNFRA_SO_1P2C_2024_Coro.git
+  338  ls -l
+  339  cd UTN-FRA_SO_Examenes/
+  340  LS -L
+  341  ls -l
+  342  cd ..
+  343  cd ~/repogit/UTN-FRA_SO_Examenes/202410
+  344  ./script_Precondicion.sh ~/.bashrc && history -a
+  345  ./script_Precondicion.sh
+  346  source ~/.bashrc && history -a
+  347  tree ~/repogit/UTNFRA_SO_1P2C_2024_Coro
+  348  vim ~/repogit/UTNFRA_SO_1P2C_2024_Coro/RTA_SCRIPT_Examen_20241001/Punto_A.sh
+  349  cd ..
+  350  mkdir -p /Examenes-UTN/{alumno_{1,2,3}/parcial_{1,2,3},profesores}
+  351  sudo mkdir -p /Examenes-UTN/{alumno_{1..3}/parcial_{1..3},profesores}
+  352  tree Ex
+  353  sudo tree /Examenes-UTN
+  354  chmod 755 /home/osboxes/repogit/UTNFRA_SO_1P2C_2024_Coro/RTA_SCRIPT_Examen_20241001/Punto_A.sh
+  355  sudo /home/osboxes/repogit/UTNFRA_SO_1P2C_2024_Coro/RTA_SCRIPT_Examen_20241001/Punto_A.sh
+  356  ls -l
+  357  sudo tree /Examenes-UTN
+  358  cd /home/osboxes/repogit/UTNFRA_SO_1P2C_2024_Coro
+  359  git add RTA_SCRIPT_Examen_20241001/Punto_A.sh
+  360  git commit -m "feat: Punto A estructura simétrica"
+  361  git config --global user.name "noecoro"
+  362  git config --global user.email "coronoelia@gmail.com"
+  363  git commit -m "feat: Punto A estructura simétrica"
+  364  git push origin main
+  365  sudo fdisk -l
+  366  vim Punto_B.sh
+  367  sudo parted /dev/sdc print
+  368  vim Punto_B.sh
+  369  chmod 755 Punto_B.sh
+  370  sudo ./Punto_B.sh
+  371  sudo fdisk -l /dev/sdc
+  372  vim Punto_B.sh
+  373  sudo ./Punto_B.sh
+  374  sudo fdisk -l /dev/sdc
+  375  sudo fdisk /dev/sdc
+  376  sudo fdisk -l /dev/sdc
+  377  sudo umount /dev/sdc*
+  378  vim Punto_B.sh
+  379  sudo ./Punto_B.sh
+  380  sudo umount /dev/sdc1
+  381  sudo fdisk /dev/sdc
+  382  sudo fdisk -l /dev/sdc
+  383  vim Punto_B.sh
+  384  sudo ./Punto_B.sh
+  385  sudo fdisk -l /dev/sdc
+  386  sudo fdisk /dev/sdc
+  387  sudo umount /dev/sdc1
+  388  sudo fdisk -l /dev/sdc
+  389  vim Punto_B.sh
+  390  sudo ./Punto_B.sh
+  391  sudo fdisk -l /dev/sdc
+  392  sudo fdisk /dev/sdc
+  393  sudo fdisk -l /dev/sdc
+  394  sudo umount /dev/sdc1
+  395  vim Punto_B.sh
+  396  sudo ./Punto_B.sh
+  397  sudo fdisk -l /dev/sdc
+  398  cat /etc/fstab
+  399  df -h | grep /Examenes-UTN
+  400  vim Punto_B.sh
+  401  sudo ./Punto_B.sh
+  402  cat /etc/fstab
+  403  sudo fdisk -l /dev/sdc
+  404  sudo umount /dev/sdc1
+  405  sudo umount /dev/sdc2
+  406  sudo umount /dev/sdc3
+  407  sudo umount /dev/sdc5
+  408  sudo umount /dev/sdc6
+  409  sudo umount /dev/sdc7
+  410  sudo umount /dev/sdc8
+  411  sudo umount /dev/sdc9
+  412  sudo umount /dev/sdc10
+  413  vim Punto_B.sh
+  414  sudo umount /Examenes-UTN/alumno_1/parcial_1
+  415  sudo umount /Examenes-UTN/alumno_1/parcial_2
+  416  sudo umount /Examenes-UTN/alumno_1/parcial_3
+  417  sudo umount /Examenes-UTN/alumno_2/parcial_1
+  418  sudo umount /Examenes-UTN/alumno_2/parcial_2
+  419  sudo umount /Examenes-UTN/alumno_2/parcial_3
+  420  sudo umount /Examenes-UTN/alumno_3/parcial_1
+  421  sudo umount /Examenes-UTN/alumno_3/parcial_2
+  422  sudo umount /Examenes-UTN/alumno_3/parcial_3
+  423  sudo umount /Examenes-UTN/profesores
+  424  sudo fdisk /dev/sdc
+  425  sudo fdisk -l /dev/sdc
+  426  sudo sfdisk --delete /dev/sdc
+  427  sudo fdisk -l /dev/sdc
+  428  vim Punto_B.sh
+  429  sudo ./Punto_B.sh
+  430  vim Punto_B.sh
+  431  sudo ./Punto_B.sh
+  432  vim Punto_B.sh
+  433  sudo ./Punto_B.sh
+  434  sudo fdisk -l /dev/sdc
+  435  cat /etc/fstab
+  436  sudo vim /etc/fstab
+  437  sudo fdisk /dev/sdc
+  438  cat /etc/fstab
+  439  sudo systemctl daemon-reload
+  440  sudo mount -a
+  441  sudo fdisk /dev/sdc
+  442  sudo mount -a
+  443  sudo fdisk -l /dev/sdc
+  444  sudo mount /dev/sdc11 /Examenes-UTN/profesores
+  445  sudo mkfs.ext4 /dev/sdc11
+  446  sudo mount /dev/sdc11 /Examenes-UTN/profesores
+  447  df -h | grep Examenes-UTN
+  448  vim Punto_B.sh
+  449  sudo fdisk /dev/sdc
+  450  sudo fdisk -l /dev/sdc
+  451  sudo umount /dev/sdc1
+  452  sudo umount /dev/sdc2
+  453  sudo umount /dev/sdc3
+  454  sudo umount /dev/sdc5
+  455  sudo umount /dev/sdc6
+  456  sudo umount /dev/sdc7
+  457  sudo umount /dev/sdc8
+  458  sudo umount /dev/sdc9
+  459  sudo umount /dev/sdc10
+  460  sudo umount /dev/sdc11
+  461  sudo fdisk -l /dev/sdc
+  462  vim Punto_B.sh
+  463  sudo ./Punto_B.sh
+  464  vim Punto_B.sh
+  465  sudo ./Punto_B.sh
+  466  sudo fdisk -l /dev/sdc
+  467  df -h | grep /dev/sdc
+  468  lsblk
+  469  realpath Punto_B.sh
+  470  history
+  471  find ~ -name "Punto_B.sh"
+  472  ls -l
+  473  cd repogit/
+  474  ls -l
+  475  cd UTNFRA_SO_1P2C_2024_Coro/
+  476  LS -L
+  477  ls -l
+  478  cd RTA_SCRIPT_Examen_20241001/
+  479  LS -L
+  480  ls -l
+  481  vim Punto_B.sh
+  482  cat Punto_B
+  483  cat Punto_B.sh
+  484  git status
+  485  git add Punto_B.sh
+  486  git commit -m "Script de particiones en Punto_B.sh"
+  487  git push
+  488  ls -l
+  489  vim Punto_C.sh
+  490  chmod 755 Punto_C.sh
+  491  ls -l Punto_B.sh
+  492  ls -l Punto_C.sh
+  493  chmod 755 Punto_B.sh
+  494  ls -l Punto_B.sh
+  495  git add Punto_B.sh
+  496  git commit -m "Permiso de ejecución para Punto_B.sh"
+  497  git push
+  498  ls -l
+  499  vim Punto_C.sh 
+  500  grep osboxes /etc/shadow | awk -F ':' '{print $2}'
+  501  sudo grep osboxes /etc/shadow | awk -F ':' '{print $2}'
+  502  vim Punto_C.sh
+  503  ./Punto_C.sh 
+  504  ls -l
+  505  cat Punto_C.sh 
+  506  getent group p1c2_2024_gAlumno
+  507  getent group p1c2_2024_gProfesores
+  508  getent passwd p1c2_2024_A1
+  509  getent passwd p1c2_2024_A2
+  510  getent passwd p1c2_2024_A3
+  511  getent passwd p1c2_2024_P1
+  512  groups p1c2_2024_A1
+  513  groups p1c2_2024_A2
+  514  groups p1c2_2024_A3
+  515  groups p1c2_2024_P1
+  516  ls -ld /Examenes-UTN/alumno_1
+  517  ls -ld /Examenes-UTN/alumno_2
+  518  ls -ld /Examenes-UTN/alumno_3
+  519  ls -ld /Examenes-UTN/profesores
+  520  ls -l /Examenes-UTN/alumno_1/validar.txt
+  521  ls -l /Examenes-UTN/alumno_2/validar.txt
+  522  ls -l /Examenes-UTN/alumno_3/validar.txt
+  523  ls -l /Examenes-UTN/profesores/validar.txt
+  524  sudo ls -ld /Examenes-UTN/alumno_1
+  525  sudo ls -ld /Examenes-UTN/alumno_2
+  526  sudo ls -ld /Examenes-UTN/alumno_3
+  527  sudo ls -ld /Examenes-UTN/profesores
+  528  sudo ls -l /Examenes-UTN/alumno_1/validar.txt
+  529  sudo ls -l /Examenes-UTN/alumno_2/validar.txt
+  530  sudo ls -l /Examenes-UTN/alumno_3/validar.txt
+  531  sudo ls -l /Examenes-UTN/profesores/validar.txt
+  532  cd ..
+  533  cd .
+  534  cd ..
+  535  cd ...
+  536  cd ..
+  537  pwd
+  538  cd ~
+  539  pwd
+  540  mkdir -p /Estructura_Asimetrica/{correo/{cartas_{1..100},carteros_{1..10}},clientes/cartas_{1..100}}
+  541  sudo mkdir -p /Estructura_Asimetrica/{correo/{cartas_{1..100},carteros_{1..10}},clientes/cartas_{1..100}}
+  542  tree /Estructura_Asimetrica/
+  543  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 80 --column 4
+  544  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 90 --column 4
+  545  sudo apt-get install tree
+  546  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 90 --columns=4
+  547  tree Estructura_Asimetrica/ --noreport | column
+  548  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 80 --columns=4
+  549  tree /Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 80 --columns=4
+  550  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 80 --columns=4
+  551  cd home/osboxes
+  552  cd /home
+  553  cd /osboxes
+  554  cd osboxes
+  555  cd /home/osboxes
+  556  pwd
+  557  mkdir -p Estructura_Asimetrica/{correo/{cartas_{1..100},carteros_{1..10}},clientes/cartas_{1..100}}
+  558  tree Estructura_Asimetrica/ --noreport | pr -T -s' ' -w 80 --columns=4
+  559  ls -l
+  560  cd repo
+  561  cd repogit/
+  562  ls -l
+  563  cd UTNFRA_SO_1P2C_2024_Coro/
+  564  LS -L
+  565  ls -l
+  566  cd RTA_ARCHIVOS_Examen_20241001/
+  567  ls -l
+  568  cd ..
+  569  cd RTA_SCRIPT_Examen_20241001/
+  570  ls -l
+  571  chmod 755 Punto_D.sh
+  572  vim Punto_D
+  573  ls -l
+  574  vim Punto_D.sh 
+  575  git status
+  576  git add Punto_D.sh
+  577  git commit -m "Estructura- script del Punto D"
+  578  git push origin main
+  579  vim Punto_C.sh 
+  580  git add Punto_C.sh
+  581  git commit -m "Usuarios- script del Punto C"
+  582  git push origin main
+  583  vim Punto_B.sh 
+  584  git status
+  585  git add Punto_B.sh
+  586  git commit -m "Particiones script del Punto_B"
+  587  git push origin main
+  588  cd ..
+  589  ls -l
+  590  cd RTA_ARCHIVOS_Examen_20241001/
+  591  ls -l
+  592  mkdir -p RTA_ARCHIVOS_Examen_$(date +%Y%m%d)
+  593  grep MemTotal /proc/meminfo > RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  594  sudo dmidecode -t chassis | grep Manufacturer >> RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  595  cat RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  596  ls -l
+  597  cd RTA_ARCHIVOS_Examen_20241002/
+  598  ls -l
+  599  cat Filtro_Basico.txt 
+  600  tree RTA_ARCHIVOS_Examen_20241001/
+  601  cd ..
+  602  tree RTA_ARCHIVOS_Examen_20241001/
+  603  ls -l
+  604  tree --noreport
+  605  vim RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  606  sudo dmidecode -t chassis
+  607  vim RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  608  ./ RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  609  vim RTA_ARCHIVOS_Examen_$(date +%Y%m%d)/Filtro_Basico.txt
+  610  ls -l
+  611  cd RTA_ARCHIVOS_Examen_20241002/
+  612  ls -l
+  613  cd ..
+  614  cat RTA_ARCHIVOS_Examen_20241001/
+  615  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  616  ls -l RTA_ARCHIVOS_Examen_20241001/
+  617  ls -l RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/
+  618  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  619  vim Punto_E.sh
+  620  chmod 755 Punto_E.sh
+  621  ./Punto_E.sh
+  622  sudo chmod 755 Punto_E.sh
+  623  ./Punto_E.sh
+  624  sudo ./Punto_E.sh
+  625  ls -l
+  626  ls RTA_ARCHIVOS_Examen_20241001/
+  627  ls RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/
+  628  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  629  vim Punto_E.sh 
+  630  ./Punto_E.sh 
+  631  vim Punto_E.sh 
+  632  ./Punto_E.sh 
+  633  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  634  vim Punto_E.sh 
+  635  ./Punto_E.sh 
+  636  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  637  vim Punto_E.sh 
+  638  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  639  ./Punto_E.sh 
+  640  git status
+  641  git add Punto_E.sh 
+  642  git commit -m "Script Punto_E.sh con filtro de memoria y chasis"
+  643  git push
+  644  git add RTA_ARCHIVOS_Examen_20241001/
+  645  git commit -m "RTA_ARCHIVOS Punto_E.sh"
+  646  git push
+  647  git status
+  648  gti add RTA_SCRIPT_Examen_20241001/Punto_E.sh 
+  649  git add RTA_SCRIPT_Examen_20241001/Punto_E.sh 
+  650  git commit -m "RTA_SCRIPT_Examen_20241001 Punto_E.sh"
+  651  git push
+  652  ls -l
+  653  ls RTA_ARCHIVOS_Examen_20241001/
+  654  ls RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/
+  655  cd RTA_SCRIPT_Examen_20241001/
+  656  ls -l
+  657  vim Punto_F.sh 
+  658  chmod 755 Punto_F.sh
+  659  ./Punto_F.sh 
+  660  sudo apt-get update
+  661  sudo apt-get install curl
+  662  ./Punto_F.sh 
+  663  ls -l
+  664  vim Punto_E.sh 
+  665  chmod 755 Punto_E.sh
+  666  ./Punto_E.sh 
+  667  ls -l RTA_ARCHIVOS_Examen_20241001/
+  668  cd ..
+  669  ls -l RTA_ARCHIVOS_Examen_20241001/
+  670  ls -l RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/
+  671  ls -l
+  672  ls -l RTA_SCRIPT_Examen_20241001/
+  673  vim Punto_E.sh 
+  674  LS -L
+  675  ls -l
+  676  touch README.md
+  677  vim README.md
+  678  ls -l
+  679  git add README.md 
+  680  git commit -m "README para inscripción"
+  681  git push
+  682  vim README.md
+  683  git add README.md 
+  684  git commit -m "README para inscripcion"
+  685  git push
+  686  history -a
+  687  vim ~/.bash_history
+  688  cp ~/bash_history ~/repogit/UTNFRA_SO_1P2C_2024_Coro/
+  689  cd ~/bash_history ~/repogit/UTNFRA_SO_1P2C_2024_Coro/
+  690  cp ~/.bash_history ~/repogit/UTNFRA_SO_1P2C_2024_Coro/
+  691  cd ~/repogit/UTNFRA_SO_1P2C_2024_Coro/
+  692  git status
+  693  git add .bash_history 
+  694  git commit -m "Bash history de examen y clases"
+  695  git status
+  696  git add .
+  697  git status
+  698  git push
+  699  git push origin main
+  700  git push
+  701  ls -l
+  702  git push
+  703  ping github.com
+  704  git push
+  705  git status
+  706  ls -l
+  707  rm Punto_E.sh 
+  708  ls -l
+  709  fdisk
+  710  fdisk -l
+  711  lsblk
+  712  df -h
+  713  ls -l
+  714  cat README.md 
+  715  ls RTA_SCRIPT_Examen_20241001/
+  716  cd RTA_SCRIPT_Examen_20241001
+  717  ls
+  718  ls -la
+  719  ls -l
+  720  cat Punto_A.sh 
+  721  cat Punto_B.sh 
+  722  cat Punto_C.sh 
+  723  cat Punto_D.sh 
+  724  ./Punto_D.sh 
+  725  cat Punto_E.sh 
+  726  ./Punto_E.sh 
+  727  ls -l tu_script.sh
+  728  ls -l Punto_E.sh
+  729  chmod 755 Punto_E.sh
+  730  ./Punto_E.sh 
+  731  vim Punto_E.sh 
+  732  cd..
+  733  cd ..
+  734  cd RTA_ARCHIVOS_Examen_20241001/
+  735  ls -l
+  736  ls -l RTA_ARCHIVOS_Examen_20241002/
+  737  cd RTA_ARCHIVOS_Examen_20241002/
+  738  ls -l
+  739  cat Filtro_Basico.txt 
+  740  cd ..
+  741  ls -l
+  742  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  743  cd RTA_SCRIPT_Examen_20241001/
+  744  ls -l-
+  745  ls -l
+  746  ./Punto_E.sh 
+  747  ls -l
+  748  vim Punto_E.sh 
+  749  ./Punto_E.sh 
+  750  cat RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  751  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  752  cd ..
+  753  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  754  ls -ld RTA_ARCHIVOS_Examen_20241001
+  755  ls -l RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  756  ls -ld RTA_ARCHIVOS_Examen_20241001
+  757  ls -l RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  758  ls -l
+  759  chmod 755 RTA_ARCHIVOS_Examen_20241001
+  760  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  761  chmod -R 755 RTA_ARCHIVOS_Examen_20241001
+  762  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  763  chmod -R 744 RTA_ARCHIVOS_Examen_20241001
+  764  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  765  ls -l RTA_ARCHIVOS_Examen_20241001
+  766  find RTA_ARCHIVOS_Examen_20241001 -name "Filtro_Basico.txt"
+  767  ls -l
+  768  cd RTA_SCRIPT_Examen_20241001/
+  769  ls -l
+  770  vim Punto_E.sh 
+  771  mv RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt RTA_ARCHIVOS_Examen_20241001/
+  772  ls -l
+  773  ls -l RTA_ARCHIVOS_Examen_20241001
+  774  cd ..
+  775  cd RTA_SCRIPT_Examen_20241001/
+  776  cd ..
+  777  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  778  cat /RTA_SCRIPT_Examen_20241001
+  779  cat /RTA_SCRIPT_Examen_20241001/
+  780  cat /RTA_SCRIPT_Examen_20241001/Filtro_Basico.txt
+  781  cat RTA_SCRIPT_Examen_20241001/Filtro_Basico.txt
+  782  cat RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  783  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  784  find . -name "Filtro_Basico.txt"
+  785  mv RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt RTA_ARCHIVOS_Examen_20241001/
+  786  ls -l RTA_ARCHIVOS_Examen_20241001/
+  787  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  788  ls -l
+  789  RTA_S
+  790  RTA_SCRIPT_Examen_20241001/
+  791  ls -l
+  792  cd repogit/
+  793  ls -l
+  794  ls -l UTN-FRA_SO_Examenes/
+  795  cd UTNFRA_SO_1P2C_2024_Coro/
+  796  LS -L
+  797  ls -l
+  798  cd RTA_SCRIPT_Examen_20241001/
+  799  ls -l
+  800  vim Punto_E.sh 
+  801  ./Punto_E.sh 
+  802  cd ..
+  803  cat RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  804  cd RTA_ARCHIVOS_Examen_20241001/
+  805  ls -l
+  806  ls -l RTA_ARCHIVOS_Examen_20241002/
+  807  cat Filtro_Basico.txt 
+  808  ls -l
+  809  cd ..
+  810  ls -l
+  811  cd RTA_SCRIPT_Examen_20241001/
+  812  ls -l
+  813  vim Punto_F.sh 
+  814  find . -name "Filtro_Avanzado.txt"
+  815  ls -l RTA_ARCHIVOS_Examen_20241002
+  816  cd RTA_ARCHIVOS_Examen_20241002
+  817  cat Filtro_Avanzado.txt 
+  818  ls -l
+  819  cd ..
+  820  ls -l
+  821  vim Punto_F.sh 
+  822  git status
+  823  git ..
+  824  git add .
+  825  git commit -m "Correcion de permisos"
+  826  git push
+  827  ls -l
+  828  vim Punto_E.sh 
+  829  ./Punto_E.sh 
+  830  cd ..
+  831  ls -l
+  832  ls -lh
+  833  git status
+  834  git rm Punto_E.sh
+  835  git commit -m "Eliminar Punto_E.sh y actualizar Filtro_Basico.txt"
+  836  git push
+  837  ls -l
+  838  cd RTA_SCRIPT_Examen_20241001/
+  839  ls -l
+  840  fdisk
+  841  ls -l
+  842  rm -r Punto_B.sh 
+  843  ls -l
+  844  cd repogit/
+  845  ls -l
+  846  ls -l UTN-FRA_SO_Examenes/
+  847  ls -l 202410
+  848  cd 202410
+  849  cd UTN-FRA_SO_Examenes/
+  850  ls -l
+  851  ls -l 202410
+  852  cd 202410
+  853  ls -l
+  854  vim script_Precondicion.sh 
+  855  cat README.md 
+  856  ls -l
+  857  ls -l _checks/
+  858  cd _checks/
+  859  ls -l
+  860  vim check_A.sh 
+  861  cd ..
+  862  pwd
+  863  cd repogit/
+  864  ls -l
+  865  cd ..
+  866  ls -l
+  867  cd ..
+  868  ls -l
+  869  UTNFRA_SO_1P2C_2024_Coro/
+  870  cd UTNFRA_SO_1P2C_2024_Coro/
+  871  ls -l
+  872  cd RTA_SCRIPT_Examen_20241001/
+  873  LS -L
+  874  ls -l
+  875  cd ..
+  876  cd RTA_ARCHIVOS_Examen_20241001/
+  877  LS -L
+  878  ls -l
+  879  cd ..
+  880  tree UTNFRA_SO_1P2C_2024_Coro/
+  881  LS -L
+  882  ls -l
+  883  cd UTNFRA_SO_1P2C_2024_Coro/
+  884  ls -l
+  885  tree RTA_ARCHIVOS_Examen_20241001
+  886  tree RTA_SCRIPT_Examen_20241001
+  887  ls -l RTA_SCRIPT_Examen_20241001/
+  888  ls -l RTA_ARCHIVOS_Examen_20241001/
+  889  ls -l RTA_ARCHIVOS_Examen_20241002/
+  890  ls -l RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241002
+  891  rm -rf RTA_ARCHIVOS_Examen_20241002
+  892  ls -l
+  893  tree UTNFRA_SO_1P2C_2024_Coro/
+  894  cd ..
+  895  tree UTNFRA_SO_1P2C_2024_Coro/
+  896  mv RTA_SCRIPT_Examen_20241001/Filtro_Basico.txt RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241001/
+  897  ls -l
+  898  cd UTNFRA_SO_1P2C_2024_Coro/
+  899  mv RTA_SCRIPT_Examen_20241001/Filtro_Basico.txt RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241001/
+  900  mv RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Avanzado.txt RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/
+  901  cd RTA_SCRIPT_Examen_20241001/
+  902  LS -L
+  903  ls -l
+  904  rm -r [200~RTA_ARCHIVOS_Examen_20241001
+  905  rm -r RTA_ARCHIVOS_Examen_20241001
+  906  rm -r RTA_ARCHIVOS_Examen_20241002
+  907  ls -l
+  908  cd ..
+  909  tree UTNFRA_SO_1P2C_2024_Coro/
+  910  cd ..
+  911  tree UTNFRA_SO_1P2C_2024_Coro/
+  912  ls -l
+  913  cd UTNFRA_SO_1P2C_2024_Coro/
+  914  ls -l
+  915  cd RTA_ARCHIVOS_Examen_20241001/
+  916  LS -L
+  917  ls -l
+  918  vim Filtro_Basico.txt 
+  919  cd RTA_ARCHIVOS_Examen_20241002/
+  920  ls -l
+  921  vim Filtro_Basico.txt 
+  922  cd ..
+  923  cd RTA_SCRIPT_Examen_20241001/
+  924  ls -l
+  925  vim Punto_E.sh 
+  926  vim Punto_F.sh 
+  927  ./Punto_E.sh 
+  928  ./Punto_F.sh 
+  929  cd ..
+  930  cd RTA_SCRIPT_Examen_20241001/
+  931  ls -l
+  932  rm -r RTA_ARCHIVOS_Examen_20241001
+  933  ls -l
+  934  vim Punto_E.sh 
+  935  ./Punto_E.sh 
+  936  ls -l
+  937  vim Punto_F.sh 
+  938  rm -r RTA_ARCHIVOS_Examen_20241002/
+  939  ls -l
+  940  ./Punto_F.sh 
+  941  vim Punto_F.sh 
+  942  ./Punto_F.sh 
+  943  ls -l
+  944  rm -r RTA_ARCHIVOS_Examen_20241001/
+  945  ls -l
+  946  ./Punto_F.sh 
+  947  ls -l
+  948  cd ..
+  949  cd RTA_ARCHIVOS_Examen_20241001/
+  950  ls -l
+  951  ls -l RTA_ARCHIVOS_Examen_20241002/
+  952  rm -r Filtro_Basico.txt 
+  953  ls -l
+  954  ls -l RTA_ARCHIVOS_Examen_20241002/
+  955  cd RTA_ARCHIVOS_Examen_20241002/
+  956  ls -l
+  957  rm -r Filtro_Basico.txt 
+  958  ls -l
+  959  cd ..
+  960  git status
+  961  git add RTA_SCRIPT_Examen_20241001/Punto_E.sh
+  962  git add RTA_SCRIPT_Examen_20241001/Punto_F.sh
+  963  git add RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Avanzado.txt
+  964  git rm RTA_ARCHIVOS_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Basico.txt
+  965  git rm RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241001/Filtro_Basico.txt
+  966  git rm RTA_SCRIPT_Examen_20241001/RTA_ARCHIVOS_Examen_20241002/Filtro_Avanzado.txt
+  967  git status
+  968  git commit -m "fix(scripts): corregir rutas de archivos en Punto_E.sh y Punto_F.sh"
+  969  git push
+  970  cd ..
+  971  tree UTNFRA_SO_1P2C_2024_Coro/
+  972  ls -l
+  973  cd UTNFRA_SO_1P2C_2024_Coro/
+  974  ls -l
+  975  ls -l RTA_ARCHIVOS_Examen_20241001/
+  976  cd RTA_ARCHIVOS_Examen_20241001/
+  977  ls -l
+  978  cd ..
+  979  cd RTA_SCRIPT_Examen_20241001/
+  980  ls -l
+  981  vim Punto_E.sh 
+  982  ./Punto_E.sh 
+  983  sudo ./Punto_E.sh 
+  984  cls -l
+  985  ls -l
+  986  cd ..
+  987  cd RTA_ARCHIVOS_Examen_20241001/
+  988  ls -l
+  989  cd ..
+  990  tree UTNFRA_SO_1P2C_2024_Coro/
+  991  ls -l
+  992  cd UTNFRA_SO_1P2C_2024_Coro/
+  993  LS -L
+  994  als -l
+  995  ls -l
+  996  cd RTA_SCRIPT_Examen_20241001/
+  997  ls -l
+  998  vim Punto_D.sh 
+  999  ./Punto_D.sh 
+ 1000  ls -l
+ 1001  cd ..
+ 1002  ls -l
+ 1003  cd ..
+ 1004  ls -l
+ 1005  cd repogit/
+ 1006  ls -l
+ 1007  cd UTNFRA_SO_1P2C_2024_Coro/
+ 1008  ls -l
+ 1009  cd ..
+ 1010  tree UTNFRA_SO_1P2C_2024_Coro/
+ 1011  cd UTNFRA_SO_1P2C_2024_Coro/
+ 1012  LS -L
+ 1013  ls -l
+ 1014  cd RTA_SCRIPT_Examen_20241001/
+ 1015  ls -l
+ 1016  rm -r Estructura_Asimetrica/
+ 1017  ls -l
+ 1018  git status
+ 1019  git add -A
+ 1020  git commit -m "fix: actualizar Punto_D.sh y eliminar archivos mal creados"
+ 1021  git push
+ 1022  man man
+ 1023  ls -l
+ 1024  cat Punto_A.sh 
+ 1025  cd ..
+ 1026  ls -l
+ 1027  cd ..
+ 1028  ls -l
+ 1029  cd repogit/
+ 1030  ls -l
+ 1031  cd UTNFRA_SO_1P2C_2024_Coro/
+ 1032  ls -l
+ 1033  cd RTA_SCRIPT_Examen_20241001/
+ 1034  ls -l
+ 1035  vim Punto_A.sh 
+ 1036  sudo find / -type d -name "Examenes-UTN"
+ 1037  cat Punto_A.sh 
+ 1038  ./Punto_A.sh 
+ 1039  sudo ./Punto_A.sh 
+ 1040  ls -l
+ 1041  sudo find /Examenes-UTN -type d
+ 1042  df -hT /Examenes-UTN/*
+ 1043  sudo tree /Examenes-UTN
+ 1044  lsblk
+ 1045  df -h
+ 1046  lsblk -f
+ 1047  ls -l
+ 1048  vim Punto_C.sh 
+ 1049  git status
+ 1050  ls -l
+ 1051  cat Punto_C.sh 
+ 1052  vim Punto_C.sh 
+ 1053  ./Punto_C.sh 
+ 1054  git status
+ 1055  git add Punto_C.sh 
+ 1056  git commit -m "fix(Punto_C): corregido error permisos"
+ 1057  git push
+ 1058  ls -l
+ 1059  vim Punto_A.sh 
+ 1060  ./Punto_A.sh 
+ 1061  vim Punto_A.sh 
+ 1062  ./Punto_A.sh 
+ 1063  ps
+ 1064  man ls
+ 1065  history
+ 1066  pwd
+ 1067  ls -la $HOME
+ 1068  man sort
+ 1069  sudo tail -f /var/log/dmesg
+ 1070  journalctl -fk | grep -i nic
+ 1071  cat/proc/cpuinfo | less
+ 1072  ls -l
+ 1073  rm -i clase4/
+ 1074  rm -i script1 
+ 1075  rm -i script2
+ 1076  mkdir practica
+ 1077  cd practica/
+ 1078  ls -l
+ 1079  mkdir practicaexamen
+ 1080  ls -l
+ 1081  cd practicaexamen/
+ 1082  touch mipractica.txt
+ 1083  ls -l
+ 1084  cp mipractica.txt micopia.txt
+ 1085  ls -l
+ 1086  rm -i mipractica.txt 
+ 1087  ls -l
+ 1088  mv micopia.txt /home/osboxes/practica
+ 1089  ls -l
+ 1090  cd ..
+ 1091  ls -l
+ 1092  ls
+ 1093  rmdir practicaexamen/
+ 1094  ls
+ 1095  whoami
+ 1096  w
+ 1097  last
+ 1098  cd ..
+ 1099  id
+ 1100  cd practica/
+ 1101  mkdir -p dir1/dir2/dir3/dir4
+ 1102  tree dir1/
+ 1103  rm dir
+ 1104  rm dir1
+ 1105  rm -r dir1
+ 1106  ls -l
+ 1107  mkdir -p {dir1,dir2}/subdir{1..3}
+ 1108  tree dir1
+ 1109  tree /dir1
+ 1110  tree
+ 1111  tree dir1 dir2
+ 1112  mkdir -p {dir1/subdir{1..3},dir2/{subdir{1..3},otrodir}}
+ 1113  tree
+ 1114  tree dir1 dir2
+ 1115  tree dir2
+ 1116  ls
+ 1117  ls -l
+ 1118  ls -lt dir2
+ 1119  mkdir -p /ex/{alumno_{1..3}/parcial_{1..3},profesores}
+ 1120  mkdir -p ex/{alumno_{1..3}/parcial_{1..3},profesores}
+ 1121  tree
+ 1122  tree ex
+ 1123  mkdir -p coro/ex/{alumno_{1..3}/parcial_{1..3},profesores}
+ 1124  tree coro
+ 1125  mkdir -p lala{mama/hijo_{1..3},papa/{ahijado,hijo{1..3}}}
+ 1126  tree lala
+ 1127  tree
+ 1128  rm -r lala
+ 1129  rm -r lalamama
+ 1130  tree
+ 1131  rm -r lalapapa/
+ 1132  mkdir -p lala/{mama/hijo_{1..3},papa/{ahijado,hijo{1..3}}}
+ 1133  tree
+ 1134  cat /etc/proc/cpuinfo
+ 1135  cat /proc/cpuinfo
+ 1136  cat /proc/cpuinfo | grep -i proce
+ 1137  cat /proc/cpuinfo | grep -i proce | awk '{print}'
+ 1138  cat /proc/cpuinfo | grep -i proce | awk '{print3}'
+ 1139  cat /proc/cpuinfo | grep -i proce | awk '{print2}'
+ 1140  cat /proc/cpuinfo | grep -i proce | awk '{print$2}'
+ 1141  cat /proc/cpuinfo | grep -i proce | awk '{print$3}'
+ 1142  cat /proc/cpuinfo | grep -i proce | awk -F':' '{print$3}'
+ 1143  cat /proc/cpuinfo | grep -i proce | awk -F':' '{print$2}'
+ 1144  nproc
+ 1145  grep osboxes /etc/passwd
+ 1146  /etc/passwd
+ 1147  /etc/shadow
+ 1148  shadoww
+ 1149  shadow
+ 1150  sudo grep osboxes /etc/shadow
+ 1151  cat /etc/passwd
+ 1152  cat /etc/passwd | grep osboxes
+ 1153  sudo cat /etc/shadow
+ 1154  sudo cat /etc/group
+ 1155  su pepe
+ 1156  sudo groupadd grupoprueba 
+ 1157  tail /etc/group
+ 1158  sudo useradd -m -s /bin/bash -c "comentario  usuario prueba" -G grupoprueba usuarioprueba
+ 1159  ls /home/
+ 1160  id usuarioprueba 
+ 1161  id
+ 1162  ls -l
+ 1163  sudo passwd usuarioprueba 
+ 1164  sudo tail /etc/shadow
+ 1165  su usuarioprueba 
+ 1166  su - usuarioprueba 
+ 1167  sudo useradd -m -s /bin/bash -c "comentario misma contraseña" -p "$(sudo grep usuarioprueba /etc/shadow | awk -F ':' '{print$2}')" usuariomismapass
+ 1168  ls -l /home/
+ 1169  su - usuariomismapass 
+ 1170  sudo usermod -s /bin/sh
+ 1171  cat /etc/passwd
+ 1172  sudo usermod -s /bin/sh usuariomismapass 
+ 1173  cat /etc/passwd
+ 1174  cd ..
+ 1175  ls -l
+ 1176  cd Documents/
+ 1177  cd Documents
+ 1178  cd Documents/
+ 1179  sudo cd Documents/
+ 1180  chmod 755 Documents/
+ 1181  ls -l
+ 1182  cd Documents/
+ 1183  ls -l
+ 1184  echo "probando" > probar.txt
+ 1185  echo "probanding" > probar2.txt
+ 1186  echo "probandingall" > probar3.txt
+ 1187  $ find -name "*.txt" | xargs grep "proband"
+ 1188  $ find -name "*.txt" | xargs grep "prob"
+ 1189  $ find -name "*.txt" | xargs grep "probando"
+ 1190  ls -l
+ 1191  $ find -name "*.txt" | xargs grep "probanding"
+ 1192  find -name "*.txt" | xargs grep "probanding"
+ 1193  echo "notxt" > noestxt
+ 1194  ls -l
+ 1195  find -name "*.txt"
+ 1196  find -name "*.txt" | grep "probanding"
+ 1197  find -name "*.txt" | xarg cat
+ 1198  find -name "*.txt" | xargs cat
+ 1199  cd ..
+ 1200  ls -l
+ 1201  cd repogit/
+ 1202  ls -l
+ 1203  cd UTNFRA_SO_1P2C_2024_Coro/
+ 1204  LS -L
+ 1205  ls -l
+ 1206  find -name "*.txt" | xargs cat
+ 1207  find -name "*.sh" | xargs cat
+ 1208  .. /
+ 1209  cd ..
+ 1210  cd Documents/
+ 1211  ls -l
+ 1212  /etc/sudoers
+ 1213  cat /etc/sudoers
+ 1214  cd ..
+ 1215  cat /etc/sudoers
+ 1216  sudo cat /etc/sudoers
+ 1217  sudo vim /etc/sudoers
+ 1218  visudo vim /etc/sudoers
+ 1219  sudo visudo vim /etc/sudoers
+ 1220  sudo visudo /etc/sudoers
+ 1221  ls -l /etc/sudoers.d
+ 1222  cd Documents/
+ 1223  ls -l
+ 1224  sudo chown usuariomismapass saludo4 
+ 1225  ls -l
+ 1226  sudo chown :usuariomismapass saludo4 
+ 1227  ls -l
+ 1228  whoami
+ 1229  cd ..
+ 1230  ls -l
+ 1231  sudo chown -R osboxes:osboxes Documents/
+ 1232  ls -l
+ 1233  ls -l Documents/
+ 1234  cd Documents/
+ 1235  ls -l
+ 1236  chmod o+w saludo4
+ 1237  ls -l
+ 1238  chmod g-w saludo4
+ 1239  ls -l
+ 1240  chomd o+r saludo4
+ 1241  chmod o+r saludo4
+ 1242  ls -l
+ 1243  chmod u+x saludo4
+ 1244  ls -l
+ 1245  chmod u-x saludo4
+ 1246  ls -l
+ 1247  chmod g+w,o-w saludo4
+ 1248  ls -l
+ 1249  chmod 777 saludo4
+ 1250  ls -l
+ 1251  cd ..
+ 1252  ls -l
+ 1253  chmod -R 640 Documents/
+ 1254  sudo chmod -R 640 Documents/
+ 1255  ls -l
+ 1256  sudo ls -l Documents/
+ 1257  chmod 745 Documents/
+ 1258  ls -l
+ 1259  chmod 754 Documents/
+ 1260  ls -l
+ 1261  chmod 755 Documents/
+ 1262  ls -l
+ 1263  clear
+ 1264  pwd
+ 1265  ls -l /home/
+ 1266  su - p1c2_2024_A
+ 1267  cd /home/p1c2_2024_A1/
+ 1268  cd /home/p1c2_2024_A1
+ 1269  cd /home/p1c2_2024_A2
+ 1270  cd /home/p1c2_2024_A3
+ 1271  cd /home/p1c2_2024_P1
+ 1272  cd /home/pepe
+ 1273  cd /home/juan
+ 1274  su pepe
+ 1275  pwd
+ 1276  su - p1c2_2024_A1
+ 1277  su  p1c2_2024_A1
+ 1278  su p1c2_2024_A1
+ 1279  su -p p1c2_2024_A1
+ 1280  pwd
+ 1281  sudo chown osboxes:osboxes /home/p1c2_2024_A1/textoA1.txt
+ 1282  ls -l
+ 1283  sudo ls -l /home/p1c2_2024_A1/
+ 1284  mkdir claseprueba
+ 1285  cd claseprueba/
+ 1286  touch practicapp1.txt
+ 1287  touch practicapp2.txt
+ 1288  ls -l
+ 1289  chmod 600 practicapp1.txt 
+ 1290  ls -l
+ 1291  chmod 222 practicapp2.txt 
+ 1292  ls -l
+ 1293  cd ..
+ 1294  sudo fdisk -l /dev/sdc
+ 1295  lsblk
+ 1296  ls -l
+ 1297  ls -l /Examenes-UTN/
+ 1298  ls -lR /Examenes-UTN/
+ 1299  sudo fdisk /dev/sdd
+ 1300  ps
+ 1301  vim defensa
+ 1302  vim prueba.sh
+ 1303  chmod 777 prueba.sh
+ 1304  ./prueba.sh 
+ 1305  lsblk
+ 1306  ls -l
+ 1307  lsblk
+ 1308  ls -l
+ 1309  lsblk
+ 1310  ls -l
+ 1311  cd clase4
+ 1312  ls -l
+ 1313  chmod 740 archivo2.txt 
+ 1314  ls -l
+ 1315  cd ..
+ 1316  ls -l
+ 1317  cd clase4
+ 1318  ls -l
+ 1319  chmod 760 archivo2.txt 
+ 1320  cd ..
+ 1321  pwd
+ 1322  ls -l /etc/apt/
+ 1323  ls -l /etc/apt/sources.list.d
+ 1324  cat /etc/apt/sources.list.d/ubuntu.sources 
+ 1325  sudo apt update 
+ 1326  sudo apt install mc
+ 1327  n
+ 1328  exit
+ 1329  sudo fdisk
+ 1330  sudo fdisk -l
+ 1331  lsblk
+ 1332  fdisk
+ 1333  sudo fdisk
+ 1334  sudo fdisk /dev/sde
+ 1335  sudo apt update
+ 1336  sudo apt install apache2
+ 1337  ls -l /var
+ 1338  ls -l /var/www
+ 1339  git clone https://github.com/upszot/UTN-FRA_SO_Examenes.git
+ 1340  ls -l
+ 1341  cd UTN-FRA_SO_Examenes/
+ 1342  ls -l
+ 1343  cd 202406
+ 1344  ls -l
+ 1345  ./script_Precondicion.sh
+ 1346  source  ~/.bashrc  && history -a 
+ 1347  sudo apt install software-properties-common -y
+ 1348  sudo add-apt-repository --yes --update ppa:ansible/ansible
+ 1349  sudo apt install ansible -y
+ 1350  curl -fsSL https://get.docker.com -o get-docker.sh
+ 1351  sudo sh get-docker.sh
+ 1352  mkdir ~/RTA_Examen_T$(date +%Y%m%d)
+ 1353  echo "comandos punto A" > ~/RTA_Examen_T$(date +%Y%m%d)/Punto_A.sh
+ 1354  git clone https://github.com/noecoro/UTNFRA_SO_2do_Parcial_Coro.git
+ 1355  ls -l
+ 1356  cd UTNFRA_SO_2do_Parcial_Coro/
+ 1357  ls -l
+ 1358  cp -r ~/RTA_Examen_T$(date +%Y%m%d) .
+ 1359  ls ~/ | grep RTA_Examen_T$(date +%Y%m%d)
+ 1360  cd ..
+ 1361  ls ~/ | grep RTA_Examen_T$(date +%Y%m%d)
+ 1362  ls -l
+ 1363  cd ~
+ 1364  mkdir RTA_Examen_T$(date +%Y%m%d)
+ 1365  ls -l | grep RTA_Examen_T
+ 1366  ls -l
+ 1367  cd ~/UTN-FRA_SO_Examenes/202406/UTNFRA_SO_2do_Parcial_Coro
+ 1368  cp -r ~/RTA_Examen_T20241113 .
+ 1369  git add RTA_Examen_T20241113
+ 1370  git commit -m "Carpeta de respuestas del examen"
+ 1371  git push origin main
+ 1372  git add RTA_Examen_T20241113
+ 1373  git commit -m "Carpeta de respuestas del examen"
+ 1374  git add
+ 1375  git add .
+ 1376  git status
+ 1377  git push origin main
+ 1378  git push origin master
+ 1379  git init
+ 1380  git add .
+ 1381  git commit -m "Carpeta de respuestas del examen"
+ 1382  git branch -M main
+ 1383  git remote add origin https://github.com/noecoro/UTNFRA_SO_2do_Parcial_Coro.git
+ 1384  git push -u origin main
+ 1385  git init
+ 1386  git checkout -b main
+ 1387  git add .
+ 1388  git commit -m "Commit inicial: Añadiendo carpeta de respuestas del examen"
+ 1389  git remote add origin https://github.com/noecoro/UTNFRA_SO_2do_Parcial_Coro.git
+ 1390  git push -u origin main
+ 1391  git remote remove origin
+ 1392  git remote add origin https://github.com/noecoro/UTNFRA_SO_2do_Parcial_Coro.git
+ 1393  git add .
+ 1394  git commit -m "Commit inicial: Añadiendo carpeta de respuestas del examen"
+ 1395  git push -u origin main
+ 1396  git status
+ 1397  ls -l
+ 1398  ls -l RTA_Examen_T20241113
+ 1399  echo "# Comandos para el punto A" > RTA_Examen_T20241113/Punto_A.sh
+ 1400  echo "# Comandos para el punto B" > RTA_Examen_T20241113/Punto_B.sh
+ 1401  git add .
+ 1402  git commit -m "Commit inicial: Añadiendo carpeta de respuestas del examen"
+ 1403  git push -u origin main
+ 1404  ssh-add -l
+ 1405  ssh-add ~/.ssh/id_ed25519
+ 1406  ssh -T git@github.com
+ 1407  git remote set-url origin git@github.com:noecoro/UTNFRA_SO_2do_Parcial_Coro.git
+ 1408  git push -u origin main
+ 1409  echo "# Comandos para el punto C" > RTA_Examen_T20241113/Punto_C.sh
+ 1410  echo "# Comandos para el punto D" > RTA_Examen_T20241113/Punto_D.sh
+ 1411  echo "# Comandos para el punto E" > RTA_Examen_T20241113/Punto_E.sh
+ 1412  ls -l RTA_Examen_T20241113
+ 1413  git add RTA_Examen_T20241113/Punto_C.sh RTA_Examen_T20241113/Punto_D.sh RTA_Examen_T20241113/Punto_E.sh
+ 1414  git commit -m "Añadiendo archivos de respuesta para los puntos C, D y E"
+ 1415  git push
+ 1416  lsblk
+ 1417  sudo pvcreate /dev/sdb
+ 1418  sudo pvcreate /dev/sdc
+ 1419  sudo pvcreate /dev/sdd
+ 1420  sudo vgcreate vf_datos /dev/sdb
+ 1421  sudo vgcreate vg_temp /dev/sdc
+ 1422  sudo lvremove vf_datos
+ 1423  sudo lvremove vg_temp
+ 1424  sudo vgremove vf_datos
+ 1425  sudo vgremove vg_temp
+ 1426  sudo pvremove /dev/sdb
+ 1427  sudo pvremove /dev/sdc
+ 1428  sudo pvremove /dev/sdd
+ 1429  sudo fdisk /dev/sdb
+ 1430  sudo fdisk /dev/sdc
+ 1431  lsblk
+ 1432  sudo fdisk /dev/sdb
+ 1433  sudo fdisk /dev/sdc
+ 1434  lsblk
+ 1435  sudo fdisk /dev/sdc
+ 1436  free -h
+ 1437  lsblk
+ 1438  sudo fdisk /dev/sdb
+ 1439  lsblk
+ 1440  sudo pvcreate /dev/sdb1
+ 1441  sudo pvcreate /dev/sdc1
+ 1442  pvs
+ 1443  pvc
+ 1444  sudo pvs
+ 1445  sudo vgcreate vg_datos /dev/sdb1
+ 1446  sudo vgcreate vg_temp /dev/sdc1
+ 1447  sudo vg
+ 1448  sudo vgs
+ 1449  sudo lvcreate -L 5M -n lv_docker vg_datos
+ 1450  sudo lvcreate -L 1.5G -n lv_workareas vg_datos
+ 1451  sudo lvcreate -L 512M -n lv_swap vg_temp
+ 1452  sudo vgs
+ 1453  sudo lvcreate -L 1.45G -n lv_workareas vg_datos
+ 1454  sudo lvcreate -L 480M -n lv_swap vg_temp
+ 1455  sudo mkfs.ext4 /dev/vg_datos/lv_docker
+ 1456  sudo mkfs.ext4 /dev/vg_datos/lv_workareas
+ 1457  sudo mkswap /dev/vg_temp/lv_swap
+ 1458  sudo swapon /dev/vg_temp/lv_swap
+ 1459  sudo mount /dev/vg_datos/lv_docker /var/lib/docker
+ 1460  sudo mkdir -p /work
+ 1461  sudo mount /dev/vg_datos/lv_workareas /work
+ 1462  free -h
+ 1463  echo '/dev/vg_datos/lv_docker /var/lib/docker ext4 defaults 0 0' | sudo tee -a /etc/fstab
+ 1464  echo '/dev/vg_datos/lv_workareas /work ext4 defaults 0 0' | sudo tee -a /etc/fstab
+ 1465  echo '/dev/vg_temp/lv_swap none swap sw 0 0' | sudo tee -a /etc/fstab
+ 1466  df -h
+ 1467  free -h
+ 1468  lsblk
+ 1469  sudo apt update
+ 1470  sudo apt install apache2
+ 1471  ls -l /var
+ 1472  ls -l /var/wwww
+ 1473  cd wwww
+ 1474  sudo ls -l /var/wwww
+ 1475  sudo ls -l /var/www
+ 1476  history > comandoslvm.txt
+ 1477  free -m
+ 1478  sudo mkdir -p /usr/local/bin/Coro
+ 1479  sudo vim /usr/local/bin/Coro/AltaUser-Groups.sh
+ 1480  sudo chmod +x /usr/local/bin/Coro/AltaUser-Groups.sh
+ 1481  sudo /usr/local/bin/Coro/AltaUser-Groups.sh osboxes /home/osboxes/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt
+ 1482  usuario:grupo
+ 1483  sudo vim /usr/local/bin/Coro/AltaUser-Groups.sh
+ 1484  sudo /usr/local/bin/Coro/AltaUser-Groups.sh osboxes /home/osboxes/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt
+ 1485  cat /home/osboxes/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt
+ 1486  sudo vim /usr/local/bin/Coro/AltaUser-Groups.sh
+ 1487  sudo /usr/local/bin/Coro/AltaUser-Groups.sh osboxes /home/osboxes/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt
+ 1488  sudo vim /usr/local/bin/Coro/AltaUser-Groups.sh
+ 1489  history > comandosScript.txt
+ 1490  ls -l
+ 1491  cd RTA_Examen_20241112/
+ 1492  ls -l
+ 1493  cd ..
+ 1494  cd RTA_Examen_20241111/
+ 1495  cd RTA_Examen_2024111/
+ 1496  cd RTA_Examen_20241112/
+ 1497  ls -l
+ 1498  vim Punto_A.sh 
+ 1499  vim Punto_B.sh 
+ 1500  docker --version
+ 1501  cd /home/osboxes/UTN-FRA_SO_Examenes/202406/docker
+ 1502  sudo vim index.html
+ 1503  cat index.html 
+ 1504  vim Dockerfile.sh
+ 1505  docker build -t web1-Coro .
+ 1506  cat Dockerfile.sh 
+ 1507  sudo docker build -t web1-Coro .
+ 1508  sudo usermod -aG docker $USER
+ 1509  sudo docker build -t web1-Coro .
+ 1510  sudo docker build -t web1-coro .
+ 1511  ls -l
+ 1512  sudo chmod 644 Dockerfile
+ 1513  mv Dockerfile.sh Dockerfile
+ 1514  ls -l
+ 1515  sudo docker build -t web1-coro .
+ 1516  sudo systemctl restart docker
+ 1517  sudo docker build -t web1-coro .
+ 1518  sudo docker system prune -a --volumes
+ 1519  df -h
+ 1520  sudo docker build -t web1-coro .
+ 1521  sudo docker system prune -a --volumes
+ 1522  df -h
+ 1523  sudo docker build -t web1-coro .
+ 1524  sudo lvextend -L +500M /dev/vg_datos/lv_docker
+ 1525  sudo resize2fs /dev/vg_datos/lv_docker
+ 1526  sudo docker build -t web1-coro .
+ 1527  sudo systemctl stop docker
+ 1528  sudo vim /etc/docker/daemon.json
+ 1529  sudo mkdir -p /docker-data
+ 1530  sudo systemctl start docker
+ 1531  sudo docker build -t web1-coro .
+ 1532  docker login
+ 1533  sudo apt update
+ 1534  sudo apt install firefox
+ 1535  firefox &
+ 1536  docker login
+ 1537  docker push noeliacoro/web1-coro
+ 1538  sudo docker push noeliacoro/web1-coro
+ 1539  docker push noeliacoro/web1-coro
+ 1540  sudo docker push noeliacoro/web1-coro
+ 1541  docker images
+ 1542  sudo docker images
+ 1543  sudo docker tag web1-coro noeliacoro/web1-coro
+ 1544  sudo docker push noeliacoro/web1-coro
+ 1545  docker login
+ 1546  sudo docker tag web1-coro noeliacoro/web1-coro
+ 1547  sudo docker push noeliacoro/web1-coro
+ 1548  docker login /u noeliacoro
+ 1549  docker login -u noeliacoro
+ 1550  sudo docker push noeliacoro/web1-coro
+ 1551  sudo docker tag web1-coro noeliacoro/web1-coro
+ 1552  sudo docker push noeliacoro/web1-coro
+ 1553  docker push noeliacoro/web1-coro
+ 1554  sudo docker login -u noeliacoro
+ 1555  sudo docker push noeliacoro/web1-coro
+ 1556  #!/bin/bash
+ 1557  docker run -d -p 8080:80 noeliacoro/web1-coro
+ 1558  vim run.sh
+ 1559  echo '#!/bin/bash' > run.sh
+ 1560  echo 'docker run -d -p 8080:80 noeliacoro/web1-coro' >> run.sh
+ 1561  chmod +x run.sh
+ 1562  cat run.sh
+ 1563  ./run.sh
+ 1564  sudo ./run.sh
+ 1565  sudo usermod -aG docker $USER
+ 1566  history > historial_comandos.txt
