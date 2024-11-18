@@ -12,7 +12,7 @@ sudo /usr/local/bin/Coro/AltaUser-Groups.sh osboxes /home/osboxes/UTN-FRA_SO_Exa
 
 # Comprobaciones
 cat /home/osboxes/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt
-
+cat /etc/passwd
 # Guardar el historial de comandos en un archivo
 history > comandosScript.txt
 
