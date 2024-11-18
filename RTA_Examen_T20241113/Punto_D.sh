@@ -34,7 +34,8 @@ sudo whoami  # Para verificar que funciona correctamente
 
 # Agregar al usuario 'osboxes' al grupo "2PSupervisores"
 sudo usermod -aG 2PSupervisores osboxes
-
+sudo visudo -cf /etc/sudoers.d/2PSupervisores
+sudo whoami 
 # Verificar la configuración en el archivo sudoers
 sudo cat /etc/sudoers | grep 2PSupervisores
 
